@@ -1,0 +1,65 @@
+.centered-HomePage, .centered-SecretsPage{
+  padding-top: 200px;
+  text-align: center;
+}
+.centered-SubmitPage{
+  background-color: #FA9AB1;
+  box-shadow: 12px 12px 2px 1px rgba(19, 19, 19, 0.273);
+  margin-top: 200px;
+  text-align: center;
+}
+.secrets-container{
+  background-color: #FA9AB1;
+  box-shadow: 12px 12px 2px 1px rgba(19, 19, 19, 0.273);
+  margin-top: 136px;
+  text-align: center;
+}
+.secret-text {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: none;
+}
+/* Home Page */
+#homePage, .centered-HomePage {
+
+  background: url("https://cdn.pixabay.com/photo/2017/02/15/20/33/floral-2069810_960_720.png");
+}
+.homePageTitle-secret{
+  font-size: 6rem;
+  font-weight: bold;
+}
+.homePageSubTitle{
+  font-weight: bold;
+  font-size: 2rem;
+}
+/* _____________ */
+
+/* Register & Login Page */
+#registerAndLoginPage{
+  background: url("https://cdn.pixabay.com/photo/2016/11/10/14/16/background-1814372_960_720.jpg");
+}
+.registerAndLoginPage-boxShadow{
+  box-shadow: 12px 12px 2px 1px rgba(19, 19, 19, 0.283);
+}
+.alreadyHaveAnAccountAndLogin-button{
+  width: 30%;
+}
+/* _____________ */
+
+/* Submit Page */
+
+#submitPage{
+  background: url("https://cdn.pixabay.com/photo/2017/10/25/08/25/cupcakes-2887270_960_720.jpg");
+}
+/* _____________ */
+
+/*  */
+#secretsPage, .secrets-upper{
+  background-image: url("https://img.freepik.com/premium-vector/key-retro-seamless-pattern-old-boundless-fabric-wallpaper-vintage-repeat-background-scrapbook_221062-1608.jpg?w=1380");
+}
+.secrets-upper{
+  padding-top: none;
+}
+/* _____________ */
