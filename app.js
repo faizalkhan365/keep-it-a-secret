@@ -150,23 +150,19 @@ app.post("/submit", function (req, res) {
     //Once the user is authenticated and their session gets saved, their user details are saved to req.user.
     // console.log("User's id: " + req.user.id);
 
-    if (req.isAuthenticated) {
-        User.findById(req.user._id, function (err, foundUser) {
-            if (err) {
-                console.log(err);
-            } else {
-                if (foundUser) {
-                    foundUser.secret.push(submittedSecret);
-                    console.log("added");
-                    foundUser.save(function () {
-                        res.redirect("/secrets");
-                    });
-                }
+    User.findById(req.user._id, function (err, foundUser) {
+        if (err) {
+            console.log(err);
+        } else {
+            if (foundUser) {
+                foundUser.secret.push(submittedSecret);
+                console.log("added");
+                foundUser.save(function () {
+                    res.redirect("/secrets");
+                });
             }
-        });
-    } else {
-        res.write("Unauthorized request");
-    }
+        }
+    });
 
 });
 
