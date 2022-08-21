@@ -25,7 +25,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-const url = "mongodb+srv://admin-faizal:1D7vj3jrIt6cg6NA@secretsdb.1wnffbz.mongodb.net/?retryWrites=true&w=majority/userDB" /* path of my db */;
+const url = "mongodb+srv://admin-faizal:1D7vj3jrIt6cg6NA@secretsdb.1wnffbz.mongodb.net//userDB" /* path of my db */;
 mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true, }).then(() => {
     console.log("Connection successful...");
 }).catch((e) => console.log("No connection!!!"));
