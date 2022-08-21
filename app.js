@@ -25,7 +25,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-const url = "mongodb://localhost:27017/userDB" /* path of my db */;
+const url = "mongodb+srv://admin-faizal:1D7vj3jrIt6cg6NA@secretsdb.1wnffbz.mongodb.net/?retryWrites=true&w=majority/userDB" /* path of my db */;
 mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true, }).then(() => {
     console.log("Connection successful...");
 }).catch((e) => console.log("No connection!!!"));
@@ -150,7 +150,7 @@ app.post("/submit", function (req, res) {
     //Once the user is authenticated and their session gets saved, their user details are saved to req.user.
     // console.log("User's id: " + req.user.id);
 
-    if(req.isAuthenticated){
+    if (req.isAuthenticated) {
         User.findById(req.user._id, function (err, foundUser) {
             if (err) {
                 console.log(err);
@@ -164,7 +164,7 @@ app.post("/submit", function (req, res) {
                 }
             }
         });
-    } else{
+    } else {
         res.write("Unauthorized request");
     }
 
@@ -192,7 +192,10 @@ app.post("/register", function (req, res) {
     })
 });
 // ____________________________________________
-
-app.listen(3000, function () {
-    console.log("Server started on port: 3000");
-})
+let port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3000;
+}
+app.listen(port, function () {
+    console.log("Server has started on port: " + port);
+});
