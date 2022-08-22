@@ -25,7 +25,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-const url = "mongodb+srv://admin-faizal:1D7vj3jrIt6cg6NA@secretsdb.1wnffbz.mongodb.net//userDB" /* path of my db */;
+const url = "mongodb+srv://admin-faizal:1D7vj3jrIt6cg6NA@secretsdb.1wnffbz.mongodb.net/userDB" /* path of my db */;
 mongoose.connect(url, { useUnifiedTopology: true, useNewUrlParser: true, }).then(() => {
     console.log("Connection successful...");
 }).catch((e) => console.log("No connection!!!"));
@@ -128,21 +128,35 @@ app.get("/submit", function (req, res) {
     }
 });
 
+
+
+
 app.post("/login", function (req, res) {
     const user = new User({
         username: req.body.username,
         password: req.body.password
     });
-    req.login(user, function (err) {
-        if (err) {
-            console.log(err);
-        } else {
-            passport.authenticate("local")(req, res, function () {
+    passport.authenticate("local", (err, user) => {
+    if (err) {
+        return next(err);
+    }
+    if (!user) {
+        res.redirect("/login");
+    }
+    else {
+        req.login(newUser, (err) => {
+            if (err) {
+                return next(err);
+            } else {
                 res.redirect("/secrets");
-            });
-        }
-    })
+            }
+        });
+    }
 });
+});
+
+
+
 
 app.post("/submit", function (req, res) {
     const submittedSecret = req.body.secret;
