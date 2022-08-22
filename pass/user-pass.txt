@@ -1,3 +1,0 @@
-secrets DB details:
-username: admin-faizal
-pass: 1D7vj3jrIt6cg6NA
