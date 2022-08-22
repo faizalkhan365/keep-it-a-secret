@@ -4,10 +4,12 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 11",
+    "start": "node app.js",
+    "start2": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Faizal",
   "license": "ISC",
   "engines": {
     "node": "16.15.1"
